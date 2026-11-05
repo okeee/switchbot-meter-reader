@@ -1,0 +1,10 @@
+# harvest-relay (https://github.com/okeee/harvest-relay) の設定例
+interval = 60
+endpoint = "http://uni.soracom.io"
+
+[[source]]
+name = "switchbot-meter"
+type = "stream"
+# --address は switchbot-meter-reader --list で調べた温湿度計の MAC アドレス
+command = ["/usr/local/bin/switchbot-meter-reader", "--address", "XX:XX:XX:XX:XX:XX"]
+aggregate = { default = "mean", switchbot_battery = "last" }
